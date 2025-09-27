@@ -5,6 +5,7 @@ import CloudBackground from "@/components/visuals/CloudBackground";
 
 import PageTransition from "@/components/animation/PageTransition";
 import Reveal from "@/components/animation/Reveal";
+import ProjectShowcase from "@/components/portfolio/ProjectShowcase";
 
 export default function Index() {
   const [mounted, setMounted] = useState(false);
@@ -64,28 +65,22 @@ export default function Index() {
       </section>
 
       <section className="container mx-auto py-16">
-        <div className="rounded-2xl border p-8 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-white">
-          <div className="grid gap-6 md:grid-cols-2 md:items-center">
-            <Reveal>
-              <div>
-                <h3 className="text-2xl font-bold">Result Management System</h3>
-                <p className="mt-2 text-sm text-white/90">Role-based access (Admin/Teacher/Student), CRUD, secure results. Spring Boot + MySQL + React.</p>
-                <div className="mt-4">
-                  <Button asChild variant="secondary">
-                    <a href="/projects">Explore Projects</a>
-                  </Button>
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={0.12}>
-              <div className="rounded-xl overflow-hidden shadow-lg ring-1 ring-white/20">
-                {mounted && (
-                  <iframe title="Result App" src="https://result-app-latest.onrender.com/" className="w-full h-64 md:h-72 bg-white pointer-events-none" />
-                )}
-              </div>
-            </Reveal>
+        <Reveal>
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold">Highlighted Project</h2>
+            <p className="mt-2 text-muted-foreground max-w-2xl">Secure, role-based academic result system with CRUD and protected views, powered by Spring Boot and MySQL.</p>
           </div>
-        </div>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <div className="mt-6">
+            <ProjectShowcase
+              title="Result Management System"
+              description="Admin, Teachers, and Students portals with authentication, CRUD operations, and secure result viewing. Spring Boot APIs + MySQL + React frontend."
+              href="https://result-app-latest.onrender.com/"
+              iframeSrc="https://result-app-latest.onrender.com/"
+            />
+          </div>
+        </Reveal>
       </section>
     </main>
     </PageTransition>

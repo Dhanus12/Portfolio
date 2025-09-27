@@ -67,23 +67,38 @@ export default function ProjectShowcase({ title, description, href, iframeSrc }:
 
         {/* Inside: framed preview */}
         <div className="relative p-4">
-          <div className="relative rounded-xl border border-white/40 dark:border-white/10 bg-gradient-to-b from-white to-white/80 dark:from-white/5 dark:to-white/[0.04] overflow-hidden shadow-2xl">
-            <div className="flex items-center gap-1 px-3 py-2 border-b border-white/40 dark:border-white/10 bg-white/60 dark:bg-white/[0.06]">
-              <span className="h-3 w-3 rounded-full bg-red-400" />
-              <span className="h-3 w-3 rounded-full bg-yellow-400" />
-              <span className="h-3 w-3 rounded-full bg-green-400" />
-              <span className="ml-3 text-xs text-muted-foreground truncate">{title}</span>
-            </div>
-            <div className="relative">
-              <iframe
-                title={title}
-                src={iframeSrc}
-                className="w-full h-64 md:h-72 bg-white pointer-events-none transition-transform duration-300 group-hover:scale-[1.01]"
+          <div className="relative">
+            {/* Hexagon styled preview with gradient border */}
+            <div
+              className="relative p-[2px] rotate-1 md:rotate-0"
+              style={{
+                clipPath: "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
+              }}
+            >
+              <div
+                className="absolute inset-0 -z-10"
+                style={{
+                  clipPath: "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
+                  background:
+                    "linear-gradient(135deg, rgba(34,211,238,0.45), rgba(16,185,129,0.45))",
+                  filter: "blur(0.5px)",
+                }}
               />
-              {/* top shine */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 dark:from-white/10 to-transparent" />
-              {/* bottom fade */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div
+                className="relative overflow-hidden shadow-2xl"
+                style={{
+                  clipPath: "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
+                  background: "linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85))",
+                }}
+              >
+                <iframe
+                  title={title}
+                  src={iframeSrc}
+                  className="w-full h-64 md:h-72 bg-white pointer-events-none transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+                {/* gloss */}
+                <div className="pointer-events-none absolute -top-10 left-0 right-0 h-24 rotate-6 bg-gradient-to-b from-white/60 to-transparent" />
+              </div>
             </div>
           </div>
           {/* Outer hover glow */}

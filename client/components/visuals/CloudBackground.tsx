@@ -37,13 +37,18 @@ export default function CloudBackground() {
       cx += (tx - cx) * 0.08;
       cy += (ty - cy) * 0.08;
 
+      // expose cursor position for CSS radial glow
+      el.style.setProperty("--mx", `${(cx * 100).toFixed(2)}%`);
+      el.style.setProperty("--my", `${(cy * 100).toFixed(2)}%`);
+
       CLOUDS.forEach((c, i) => {
         const angle = t * (1 + c.drift) + i;
         const driftX = Math.sin(angle) * 12;
         const driftY = Math.cos(angle * 0.9) * 8;
         const mouseX = (cx - 0.5) * c.parallax;
         const mouseY = (cy - 0.5) * c.parallax;
-        const cloud = el.children[i] as HTMLElement | undefined;
+        // first child will be sky layer, so clouds start at index 1
+        const cloud = el.children[i + 1] as HTMLElement | undefined;
         if (cloud) {
           cloud.style.transform = `translate3d(${mouseX + driftX}px, ${mouseY + driftY}px, 0)`;
         }
@@ -70,29 +75,47 @@ export default function CloudBackground() {
 
   return (
     <div ref={ref} className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      {/* Sky layer behind clouds */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 0,
+          background:
+            "linear-gradient(180deg, hsl(203 100% 96% / 1), hsl(203 88% 92% / 0.95))",
+        }}
+      />
+
       {CLOUDS.map((c, idx) => (
         <div
           key={idx}
           className="absolute will-change-transform"
           style={{
+            zIndex: 1,
             left: `calc(${c.x * 100}% - ${c.size / 2}px)`,
             top: `calc(${c.y * 100}% - ${c.size / 2}px)`,
             width: `${c.size}px`,
             height: `${c.size}px`,
-            // Cloud made by layered radial-gradients with soft cyan tint
+            // Cloud made by layered radial-gradients with light blue/white tint
             background:
-              `radial-gradient(closest-side at 42% 40%, hsla(0,0%,100%,${c.opacity}) 0 60%, transparent 70%),` +
-              `radial-gradient(closest-side at 60% 55%, hsla(0,0%,100%,${c.opacity * 0.9}) 0 58%, transparent 70%),` +
-              `radial-gradient(closest-side at 35% 60%, hsla(0,0%,100%,${c.opacity * 0.85}) 0 52%, transparent 70%),` +
-              `radial-gradient(closest-side at 55% 38%, hsla(180,70%,88%,${c.opacity * 0.45}) 0 38%, transparent 62%)`,
-            filter: "blur(2px)",
+              `radial-gradient(closest-side at 42% 40%, hsla(200, 40%, 99%, ${Math.min(1, c.opacity + 0.2)}) 0 60%, transparent 70%),` +
+              `radial-gradient(closest-side at 60% 55%, hsla(200, 40%, 98%, ${Math.min(1, c.opacity + 0.15)}) 0 58%, transparent 70%),` +
+              `radial-gradient(closest-side at 35% 60%, hsla(200, 40%, 97%, ${Math.min(1, c.opacity + 0.12)}) 0 52%, transparent 70%),` +
+              `radial-gradient(closest-side at 55% 38%, hsla(200, 70%, 90%, ${c.opacity * 0.6}) 0 38%, transparent 62%)`,
+            filter: "blur(3px) drop-shadow(0 8px 24px hsla(200, 60%, 70%, 0.15))",
+            borderRadius: "9999px",
           }}
         />
       ))}
-      {/* Subtle sky tint */}
-      <div className="absolute inset-0" style={{
-        background: "linear-gradient(180deg, hsla(190, 45%, 96%, 0.9), hsla(190, 60%, 94%, 0.8))",
-      }} />
+
+      {/* Cursor-follow glow to lighten blue where pointer is */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 2,
+          background:
+            "radial-gradient(800px at var(--mx,50%) var(--my,50%), hsl(200 90% 88% / 0.35), transparent 60%)",
+        }}
+      />
     </div>
   );
 }

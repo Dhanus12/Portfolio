@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import InteractiveBackground from "@/components/visuals/InteractiveBackground";
 
 export default function Index() {
   const [mounted, setMounted] = useState(false);
@@ -9,10 +10,7 @@ export default function Index() {
   return (
     <main>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 opacity-60">
-          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-indigo-500 blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-fuchsia-500 blur-3xl" />
-        </div>
+        <InteractiveBackground />
         <div className="container mx-auto min-h-[70vh] grid place-items-center py-16">
           <div className="text-center max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-xs text-muted-foreground">Java Developer • Spring Boot • MySQL • React</p>
@@ -50,7 +48,7 @@ export default function Index() {
           <div className="grid gap-6 md:grid-cols-2 md:items-center">
             <div>
               <h3 className="text-2xl font-bold">Result Management System</h3>
-              <p className="mt-2/ text-sm text-white/90">Role-based access (Admin/Teacher/Student), CRUD, secure results. Spring Boot + MySQL + React.</p>
+              <p className="mt-2 text-sm text-white/90">Role-based access (Admin/Teacher/Student), CRUD, secure results. Spring Boot + MySQL + React.</p>
               <div className="mt-4">
                 <Button asChild variant="secondary">
                   <a href="/projects">Explore Projects</a>

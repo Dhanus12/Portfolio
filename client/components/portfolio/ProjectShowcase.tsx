@@ -63,11 +63,12 @@ export default function ProjectShowcase({ title, description, href, iframeSrc }:
               <span className="rounded-full bg-sky-500/15 text-sky-700 dark:text-sky-300 px-2 py-1">MySQL</span>
             </div>
           </div>
+          <p className="mt-2 text-xs text-muted-foreground md:transition md:duration-300 md:group-hover:opacity-0">Hover to preview</p>
         </div>
 
         {/* Inside: framed preview */}
         <div className="relative p-4">
-          <div className="relative">
+          <div className="relative md:hidden md:group-hover:block">
             {/* Circular preview with animated gradient ring */}
             <div className="relative grid place-items-center">
               <div className="relative h-64 w-64 md:h-80 md:w-80">

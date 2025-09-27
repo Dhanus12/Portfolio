@@ -21,7 +21,7 @@ export default function Index() {
     <main>
       <section className="relative overflow-hidden">
         <InteractiveBackground />
-        <div className="container mx-auto min-h-[70vh] grid place-items-center py-16">
+        <div className="container mx-auto min-h-[calc(100vh-4rem)] grid place-items-center py-16">
           <div className="text-center max-w-3xl">
             <Reveal>
               <p className="inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-xs text-muted-foreground">Java Developer • Spring Boot • MySQL • React</p>

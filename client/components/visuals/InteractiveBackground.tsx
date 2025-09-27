@@ -48,7 +48,7 @@ export default function InteractiveBackground() {
       style={{
         // Cursor-following glow
         background:
-          "radial-gradient(600px at var(--mx,50%) var(--my,50%), hsl(256 72% 55% / 0.25), transparent 60%)",
+          "radial-gradient(600px at var(--mx,50%) var(--my,50%), hsl(172 66% 40% / 0.22), transparent 60%)",
       }}
     >
       {/* Parallax blobs */}

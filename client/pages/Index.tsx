@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import InteractiveBackground from "@/components/visuals/InteractiveBackground";
+import CloudBackground from "@/components/visuals/CloudBackground";
 
 import PageTransition from "@/components/animation/PageTransition";
 import Reveal from "@/components/animation/Reveal";
@@ -20,7 +20,7 @@ export default function Index() {
     <PageTransition>
     <main>
       <section className="relative overflow-hidden">
-        <InteractiveBackground />
+        <CloudBackground />
         <div className="container mx-auto min-h-[calc(100vh-4rem)] grid place-items-center py-16">
           <div className="text-center max-w-3xl">
             <Reveal>

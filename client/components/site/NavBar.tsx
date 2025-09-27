@@ -15,7 +15,7 @@ export default function NavBar() {
     <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
       <div className="container mx-auto flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 via-violet-500 to-fuchsia-500 text-white font-bold">D</span>
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-white font-bold">D</span>
           <span className="font-semibold text-lg">DHANUS MANI S</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">

@@ -68,36 +68,18 @@ export default function ProjectShowcase({ title, description, href, iframeSrc }:
         {/* Inside: framed preview */}
         <div className="relative p-4">
           <div className="relative">
-            {/* Hexagon styled preview with gradient border */}
-            <div
-              className="relative p-[2px] rotate-1 md:rotate-0"
-              style={{
-                clipPath: "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
-              }}
-            >
-              <div
-                className="absolute inset-0 -z-10"
-                style={{
-                  clipPath: "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
-                  background:
-                    "linear-gradient(135deg, rgba(34,211,238,0.45), rgba(16,185,129,0.45))",
-                  filter: "blur(0.5px)",
-                }}
-              />
-              <div
-                className="relative overflow-hidden shadow-2xl"
-                style={{
-                  clipPath: "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
-                  background: "linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85))",
-                }}
-              >
-                <iframe
-                  title={title}
-                  src={iframeSrc}
-                  className="w-full h-64 md:h-72 bg-white pointer-events-none transition-transform duration-300 group-hover:scale-[1.02]"
-                />
-                {/* gloss */}
-                <div className="pointer-events-none absolute -top-10 left-0 right-0 h-24 rotate-6 bg-gradient-to-b from-white/60 to-transparent" />
+            {/* Circular preview with animated gradient ring */}
+            <div className="relative grid place-items-center">
+              <div className="relative h-64 w-64 md:h-80 md:w-80">
+                {/* outer animated ring */}
+                <div className="absolute -inset-1 rounded-full blur-md opacity-70" style={{ background: "conic-gradient(from 0deg, rgba(34,211,238,0.45), rgba(16,185,129,0.45), rgba(56,189,248,0.45), rgba(34,211,238,0.45))" }} />
+                <div className="absolute inset-0 rounded-full p-[2px]" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.25))" }}>
+                  <div className="relative h-full w-full rounded-full overflow-hidden bg-white">
+                    <iframe title={title} src={iframeSrc} className="h-full w-full bg-white pointer-events-none transition-transform duration-300 group-hover:scale-[1.03]" />
+                    {/* glass shine */}
+                    <div className="pointer-events-none absolute -top-8 left-0 right-0 h-24 rotate-6 bg-gradient-to-b from-white/60 to-transparent" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

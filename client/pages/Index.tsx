@@ -1,62 +1,70 @@
-import { DemoResponse } from "@shared/api";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
-    </div>
+    <main>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 opacity-60">
+          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-indigo-500 blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-fuchsia-500 blur-3xl" />
+        </div>
+        <div className="container mx-auto min-h-[70vh] grid place-items-center py-16">
+          <div className="text-center max-w-3xl">
+            <p className="inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-xs text-muted-foreground">Java Developer • Spring Boot • MySQL • React</p>
+            <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+              Building clean, scalable full‑stack apps in Java
+            </h1>
+            <p className="mt-4 text-muted-foreground text-lg">I’m Dhanus Mani S — a Java developer crafting robust APIs with Spring Boot and intuitive UIs with React. Quick learner, production mindset, and a passion for performance.</p>
+            <div className="mt-6 flex items-center justify-center gap-3">
+              <Button asChild size="lg"><Link to="/projects">See Projects</Link></Button>
+              <Button asChild size="lg" variant="secondary"><Link to="/about">About Me</Link></Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto py-16">
+        <h2 className="text-2xl md:text-3xl font-bold">Career Objective</h2>
+        <p className="mt-3 text-muted-foreground max-w-3xl">Recent ECE graduate seeking a Java Developer or Full Stack role to apply and grow my skills. Experienced with building real-world applications, contributing to both frontend and backend logic, and maintaining clean, scalable code.</p>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {[
+            { title: "Java & Spring Boot", desc: "REST APIs, authentication, and robust services" },
+            { title: "Database Design", desc: "MySQL schemas, joins, indexing, and migrations" },
+            { title: "Frontend Engineering", desc: "React components, state, and responsive UI" },
+          ].map((s) => (
+            <div key={s.title} className="rounded-xl border p-5 bg-card">
+              <h3 className="font-semibold">{s.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto py-16">
+        <div className="rounded-2xl border p-8 bg-gradient-to-br from-indigo-500 via-violet-500 to-fuchsia-500 text-white">
+          <div className="grid gap-6 md:grid-cols-2 md:items-center">
+            <div>
+              <h3 className="text-2xl font-bold">Result Management System</h3>
+              <p className="mt-2/ text-sm text-white/90">Role-based access (Admin/Teacher/Student), CRUD, secure results. Spring Boot + MySQL + React.</p>
+              <div className="mt-4">
+                <Button asChild variant="secondary">
+                  <a href="/projects">Explore Projects</a>
+                </Button>
+              </div>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg ring-1 ring-white/20">
+              {mounted && (
+                <iframe title="Result App" src="https://result-app-latest.onrender.com/" className="w-full h-64 md:h-72 bg-white pointer-events-none" />
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

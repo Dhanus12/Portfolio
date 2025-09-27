@@ -56,14 +56,14 @@ export default function InteractiveBackground() {
         className="absolute -top-24 -left-24 h-80 w-80 rounded-full blur-3xl"
         style={{
           transform: "translate3d(var(--tx1,0), var(--ty1,0), 0)",
-          background: "linear-gradient(135deg, hsl(256 72% 55% / 0.5), hsl(292 84% 61% / 0.5))",
+          background: "linear-gradient(135deg, hsl(172 66% 44% / 0.5), hsl(187 85% 56% / 0.5))",
         }}
       />
       <div
         className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full blur-3xl opacity-80"
         style={{
           transform: "translate3d(var(--tx2,0), var(--ty2,0), 0)",
-          background: "linear-gradient(135deg, hsl(292 84% 61% / 0.45), hsl(333 79% 58% / 0.45))",
+          background: "linear-gradient(135deg, hsl(187 85% 56% / 0.45), hsl(200 90% 60% / 0.45))",
         }}
       />
     </div>

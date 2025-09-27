@@ -47,7 +47,7 @@ export default function ProjectShowcase({ title, description, href, iframeSrc }:
         }}
       >
         {/* Inside: content panel */}
-        <div className="p-8">
+        <div className="p-8 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:-translate-x-1 md:group-hover:-translate-y-0.5 md:group-hover:scale-[0.99] min-h-[18rem]">
           <div className="inline-flex items-center gap-2 rounded-full border bg-white/70 dark:bg-white/10 px-3 py-1 text-xs text-muted-foreground">
             Featured Project
           </div>
@@ -68,15 +68,15 @@ export default function ProjectShowcase({ title, description, href, iframeSrc }:
 
         {/* Inside: framed preview */}
         <div className="relative p-4">
-          <div className="relative md:hidden md:group-hover:block">
+          <div className="relative md:opacity-0 md:group-hover:opacity-100 md:transition md:duration-500 md:ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:translate-x-1">
             {/* Circular preview with animated gradient ring */}
             <div className="relative grid place-items-center">
               <div className="relative h-64 w-64 md:h-80 md:w-80">
                 {/* outer animated ring */}
-                <div className="absolute -inset-1 rounded-full blur-md opacity-70" style={{ background: "conic-gradient(from 0deg, rgba(34,211,238,0.45), rgba(16,185,129,0.45), rgba(56,189,248,0.45), rgba(34,211,238,0.45))" }} />
-                <div className="absolute inset-0 rounded-full p-[2px]" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.25))" }}>
-                  <div className="relative h-full w-full rounded-full overflow-hidden bg-white">
-                    <iframe title={title} src={iframeSrc} className="h-full w-full bg-white pointer-events-none transition-transform duration-300 group-hover:scale-[1.03]" />
+                <div className="absolute -inset-1 rounded-2xl md:transition-all md:duration-500 md:group-hover:rounded-full blur-md opacity-70" style={{ background: "conic-gradient(from 0deg, rgba(34,211,238,0.45), rgba(16,185,129,0.45), rgba(56,189,248,0.45), rgba(34,211,238,0.45))" }} />
+                <div className="absolute inset-0 rounded-2xl md:transition-all md:duration-500 md:group-hover:rounded-full p-[2px]" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.25))" }}>
+                  <div className="relative h-full w-full rounded-2xl md:transition-all md:duration-500 md:group-hover:rounded-full overflow-hidden bg-white">
+                    <iframe title={title} src={iframeSrc} className="h-full w-full bg-white pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:scale-95 md:group-hover:scale-100" />
                     {/* glass shine */}
                     <div className="pointer-events-none absolute -top-8 left-0 right-0 h-24 rotate-6 bg-gradient-to-b from-white/60 to-transparent" />
                   </div>
@@ -85,7 +85,7 @@ export default function ProjectShowcase({ title, description, href, iframeSrc }:
             </div>
           </div>
           {/* Outer hover glow */}
-          <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[28px] bg-gradient-to-br from-cyan-400/25 via-sky-400/15 to-emerald-400/25 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[28px] bg-gradient-to-br from-cyan-400/25 via-sky-400/15 to-emerald-400/25 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 md:group-hover:translate-x-0.5" />
         </div>
       </div>
     </div>

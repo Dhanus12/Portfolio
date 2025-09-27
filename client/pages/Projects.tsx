@@ -1,16 +1,26 @@
 import { Button } from "@/components/ui/button";
 
-const Card = ({ title, description, children, link }: { title: string; description: string; children: React.ReactNode; link?: string }) => (
+const Card = ({
+  title,
+  description,
+  children,
+  link,
+}: {
+  title: string;
+  description: string;
+  children: React.ReactNode;
+  link?: string;
+}) => (
   <div className="rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden">
-    <div className="aspect-video bg-muted/40">
-      {children}
-    </div>
+    <div className="aspect-video bg-muted/40">{children}</div>
     <div className="p-5 space-y-3">
       <h3 className="font-semibold text-lg">{title}</h3>
       <p className="text-sm text-muted-foreground">{description}</p>
       {link && (
         <Button asChild>
-          <a href={link} target="_blank" rel="noreferrer">Open App</a>
+          <a href={link} target="_blank" rel="noreferrer">
+            Open App
+          </a>
         </Button>
       )}
     </div>
@@ -20,8 +30,13 @@ const Card = ({ title, description, children, link }: { title: string; descripti
 export default function Projects() {
   return (
     <main className="container mx-auto py-12">
-      <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Selected Projects</h1>
-      <p className="mt-2 text-muted-foreground max-w-2xl">Real-world, full-stack applications built with Java, Spring Boot, MySQL, and modern React.</p>
+      <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+        Selected Projects
+      </h1>
+      <p className="mt-2 text-muted-foreground max-w-2xl">
+        Real-world, full-stack applications built with Java, Spring Boot, MySQL,
+        and modern React.
+      </p>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <Card

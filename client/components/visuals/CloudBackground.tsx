@@ -14,7 +14,7 @@ const CLOUDS: CloudSpec[] = [
   { x: 0.75, y: 0.22, size: 460, drift: 0.25, parallax: 28, opacity: 0.6 },
   { x: 0.48, y: 0.48, size: 520, drift: 0.3, parallax: 26, opacity: 0.58 },
   { x: 0.22, y: 0.72, size: 420, drift: 0.28, parallax: 30, opacity: 0.6 },
-  { x: 0.82, y: 0.70, size: 560, drift: 0.22, parallax: 24, opacity: 0.55 },
+  { x: 0.82, y: 0.7, size: 560, drift: 0.22, parallax: 24, opacity: 0.55 },
 ];
 
 export default function CloudBackground() {
@@ -130,7 +130,10 @@ export default function CloudBackground() {
   }, []);
 
   return (
-    <div ref={ref} className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+    <div
+      ref={ref}
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+    >
       {/* Sky layer behind clouds (light blue) */}
       <div
         className="absolute inset-0"
@@ -157,7 +160,8 @@ export default function CloudBackground() {
               `radial-gradient(closest-side at 60% 55%, hsla(200, 40%, 98%, ${Math.min(1, c.opacity + 0.2)}) 0 58%, transparent 72%),` +
               `radial-gradient(closest-side at 35% 60%, hsla(200, 40%, 97%, ${Math.min(1, c.opacity + 0.18)}) 0 52%, transparent 72%),` +
               `radial-gradient(closest-side at 55% 38%, hsla(200, 70%, 90%, ${c.opacity * 0.7}) 0 40%, transparent 62%)`,
-            filter: "blur(2.5px) drop-shadow(0 10px 28px hsla(200, 60%, 70%, 0.18))",
+            filter:
+              "blur(2.5px) drop-shadow(0 10px 28px hsla(200, 60%, 70%, 0.18))",
             borderRadius: "9999px",
           }}
         />

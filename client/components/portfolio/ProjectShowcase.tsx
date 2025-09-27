@@ -8,7 +8,12 @@ interface Props {
   iframeSrc: string;
 }
 
-export default function ProjectShowcase({ title, description, href, iframeSrc }: Props) {
+export default function ProjectShowcase({
+  title,
+  description,
+  href,
+  iframeSrc,
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [rx, setRx] = useState(0);
   const [ry, setRy] = useState(0);
@@ -55,15 +60,25 @@ export default function ProjectShowcase({ title, description, href, iframeSrc }:
           <p className="mt-2 text-sm text-muted-foreground">{description}</p>
           <div className="mt-4 flex items-center gap-3">
             <Button asChild>
-              <a href={href} target="_blank" rel="noreferrer">Open App</a>
+              <a href={href} target="_blank" rel="noreferrer">
+                Open App
+              </a>
             </Button>
             <div className="hidden md:flex items-center gap-1 text-[10px] text-muted-foreground">
-              <span className="rounded-full bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 px-2 py-1">React</span>
-              <span className="rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 px-2 py-1">Spring Boot</span>
-              <span className="rounded-full bg-sky-500/15 text-sky-700 dark:text-sky-300 px-2 py-1">MySQL</span>
+              <span className="rounded-full bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 px-2 py-1">
+                React
+              </span>
+              <span className="rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 px-2 py-1">
+                Spring Boot
+              </span>
+              <span className="rounded-full bg-sky-500/15 text-sky-700 dark:text-sky-300 px-2 py-1">
+                MySQL
+              </span>
             </div>
           </div>
-          <p className="mt-2 text-xs text-muted-foreground md:transition md:duration-300 md:group-hover:opacity-0">Hover to preview</p>
+          <p className="mt-2 text-xs text-muted-foreground md:transition md:duration-300 md:group-hover:opacity-0">
+            Hover to preview
+          </p>
         </div>
 
         {/* Inside: framed preview */}
@@ -73,10 +88,26 @@ export default function ProjectShowcase({ title, description, href, iframeSrc }:
             <div className="relative grid place-items-center">
               <div className="relative h-64 w-64 md:h-80 md:w-80">
                 {/* outer animated ring */}
-                <div className="absolute -inset-1 rounded-2xl md:transition-all md:duration-500 md:group-hover:rounded-full blur-md opacity-70" style={{ background: "conic-gradient(from 0deg, rgba(34,211,238,0.45), rgba(16,185,129,0.45), rgba(56,189,248,0.45), rgba(34,211,238,0.45))" }} />
-                <div className="absolute inset-0 rounded-2xl md:transition-all md:duration-500 md:group-hover:rounded-full p-[2px]" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.25))" }}>
+                <div
+                  className="absolute -inset-1 rounded-2xl md:transition-all md:duration-500 md:group-hover:rounded-full blur-md opacity-70"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, rgba(34,211,238,0.45), rgba(16,185,129,0.45), rgba(56,189,248,0.45), rgba(34,211,238,0.45))",
+                  }}
+                />
+                <div
+                  className="absolute inset-0 rounded-2xl md:transition-all md:duration-500 md:group-hover:rounded-full p-[2px]"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.25))",
+                  }}
+                >
                   <div className="relative h-full w-full rounded-2xl md:transition-all md:duration-500 md:group-hover:rounded-full overflow-hidden bg-white">
-                    <iframe title={title} src={iframeSrc} className="h-full w-full bg-white pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:scale-95 md:group-hover:scale-100" />
+                    <iframe
+                      title={title}
+                      src={iframeSrc}
+                      className="h-full w-full bg-white pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:scale-95 md:group-hover:scale-100"
+                    />
                     {/* glass shine */}
                     <div className="pointer-events-none absolute -top-8 left-0 right-0 h-24 rotate-6 bg-gradient-to-b from-white/60 to-transparent" />
                   </div>

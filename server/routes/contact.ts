@@ -11,7 +11,8 @@ export const handleContact: RequestHandler = async (req, res) => {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     return res.status(501).json({
-      error: "Email service not configured. Set RESEND_API_KEY to enable sending.",
+      error:
+        "Email service not configured. Set RESEND_API_KEY to enable sending.",
     });
   }
 
@@ -19,7 +20,7 @@ export const handleContact: RequestHandler = async (req, res) => {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

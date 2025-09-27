@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -23,10 +24,21 @@ export default function NavBar() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                cn("text-sm transition-colors hover:text-primary", isActive ? "text-primary" : "text-muted-foreground")
+                cn("relative pb-1 text-sm transition-colors hover:text-primary", isActive ? "text-primary" : "text-muted-foreground")
               }
             >
-              {item.label}
+              {({ isActive }) => (
+                <span className="relative inline-block">
+                  {item.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                      transition={{ type: "spring", stiffness: 500, damping: 40 }}
+                    />)
+                  }
+                </span>
+              )}
             </NavLink>
           ))}
         </nav>

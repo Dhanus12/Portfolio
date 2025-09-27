@@ -1,6 +1,12 @@
+import InteractiveBackground from "@/components/visuals/InteractiveBackground";
+import PageTransition from "@/components/animation/PageTransition";
+
 export default function About() {
   return (
-    <main className="container mx-auto py-12">
+    <PageTransition>
+    <section className="relative">
+      <InteractiveBackground />
+      <main className="container mx-auto py-12">
       <h1 className="text-3xl md:text-4xl font-bold tracking-tight">About</h1>
       <p className="mt-2 text-muted-foreground max-w-2xl">Java developer with hands-on experience building full-stack applications using Spring Boot, MySQL, and React.</p>
 
@@ -44,6 +50,8 @@ export default function About() {
           <li>Syed Ammal Hr. Sec. School — SSLC</li>
         </ul>
       </section>
-    </main>
+      </main>
+    </section>
+    </PageTransition>
   );
 }

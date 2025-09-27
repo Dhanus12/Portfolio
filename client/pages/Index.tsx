@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import InteractiveBackground from "@/components/visuals/InteractiveBackground";
 
+import PageTransition from "@/components/animation/PageTransition";
+
 export default function Index() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
+    <PageTransition>
     <main>
       <section className="relative overflow-hidden">
         <InteractiveBackground />
@@ -64,5 +67,6 @@ export default function Index() {
         </div>
       </section>
     </main>
+    </PageTransition>
   );
 }

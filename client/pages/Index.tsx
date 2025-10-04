@@ -37,12 +37,12 @@ export default function Index() {
   return (
     <PageTransition>
       <main>
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100">
           <CloudBackground />
           <div className="container mx-auto min-h-[calc(100vh-4rem)] grid place-items-center py-16">
             <div className="text-center max-w-3xl">
               <Reveal>
-                <p className="inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-xs text-muted-foreground">
+                <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-slate-100/85 shadow-lg shadow-cyan-500/10">
                   Java Developer • Spring Boot • MySQL • React
                 </p>
               </Reveal>
@@ -52,7 +52,7 @@ export default function Index() {
                 </h1>
               </Reveal>
               <Reveal delay={0.16}>
-                <p className="mt-4 text-muted-foreground text-lg">
+                <p className="mt-4 text-lg text-slate-200/90">
                   I’m Dhanus Mani S — a Java developer crafting robust APIs with
                   Spring Boot and intuitive UIs with React. Quick learner,
                   production mindset, and a passion for performance.
@@ -63,10 +63,23 @@ export default function Index() {
                   <Button asChild size="lg">
                     <Link to="/projects">See Projects</Link>
                   </Button>
-                  <Button asChild size="lg" variant="secondary">
+                  <Button asChild size="lg" variant="outline">
                     <Link to="/about">About Me</Link>
                   </Button>
                 </div>
+              </Reveal>
+              <Reveal delay={0.32}>
+                <nav className="mt-10 hidden lg:flex items-center justify-center gap-10 text-sm font-medium">
+                  {laptopMenu.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="relative inline-flex text-slate-200/80 transition-colors hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-cyan-400/80 after:transition-transform after:duration-200 after:ease-out after:content-[''] hover:after:scale-x-100"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
               </Reveal>
             </div>
           </div>

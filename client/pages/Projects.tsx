@@ -54,13 +54,13 @@ export default function Projects() {
         <Card
           title="Retail Billing (POS) System"
           description="Product/catalog CRUD, customer selection, checkout, invoice generation, Razorpay integration, role-based access, and analytics dashboards. React + Spring Boot + MySQL."
+          link="https://symphonious-seahorse-1e94dc.netlify.app/"
         >
-          <div className="flex h-full items-center justify-center bg-gradient-to-br from-indigo-500 via-violet-500 to-fuchsia-500 text-white">
-            <div className="text-center p-6">
-              <p className="text-xl font-semibold">Retail Billing (POS)</p>
-              <p className="text-sm mt-2 opacity-90">Case study coming soon</p>
-            </div>
-          </div>
+          <iframe
+            title="Retail Billing POS"
+            src="https://symphonious-seahorse-1e94dc.netlify.app/"
+            className="w-full h-full pointer-events-none grayscale-[15%] contrast-[1.05]"
+          />
         </Card>
       </div>
     </main>

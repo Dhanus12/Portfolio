@@ -55,6 +55,16 @@ export default function NavBar() {
           <Button
             asChild
             size="sm"
+            variant="default"
+            className="bg-emerald-500 text-white hover:bg-emerald-400"
+          >
+            <a href="/DhanusManiS-Resume.txt" download>
+              Download Resume
+            </a>
+          </Button>
+          <Button
+            asChild
+            size="sm"
             variant="outline"
             className="border-white/20 text-slate-100 hover:bg-white/10 hover:text-white"
           >

@@ -1,0 +1,46 @@
+DHANUS MANI S
+Software Developer
+Email: dhanusmani43@gmail.com | Phone: +91 9360192508 | Hyderabad, Telangana, India
+LinkedIn: https://www.linkedin.com/in/dhanusmani | GitHub: https://github.com/dhanusmani
+
+Summary
+I'm a passionate Software Developer who enjoys building practical, user-friendly applications. With hands-on experience in Java, Spring Boot, React.js, and MySQL, I've developed and deployed full-stack projects that focus on security, reliability, and clean design. I'm especially interested in backend development and love solving problems that make applications more efficient and scalable. Looking forward to contributing my skills and learning from real-world challenges as a Java / Full Stack Developer.
+
+Experience
+Full Stack Web Development Intern, Bright Greeks Software Solutions (Mar 2023 – Jun 2023) — Bangalore
+• Built and integrated login systems for production projects.
+• Developed UIs with HTML, CSS, Bootstrap, and JavaScript.
+• Implemented Spring Boot APIs and MySQL for persistence.
+• Improved bug resolution speed by 20%.
+• Contributed to secure result management workflows.
+
+Education
+B.E. Electronics and Communication Engineering, P.S.V. College of Engineering and Technology (2021 – 2025), Krishnagiri — GPA 7.8
+HSC, Syed Ammal Hr. Sec. School (2020 – 2021), Ramanathapuram — 75%
+SSLC, Syed Ammal Hr. Sec. School (2018 – 2019), Ramanathapuram — 65%
+
+Skills
+Programming: Java
+Web Development: HTML, CSS, Bootstrap, React.js
+Concepts: OOP, Authentication & Authorization, API Integration
+Database: MySQL
+Backend: Spring Boot, Spring JPA, Hibernate
+Tools: Git, GitHub
+Languages: English, Tamil
+
+Projects
+Retail Billing (POS) System — Full Stack Project — Live
+• Point of Sale system with catalog management and invoice generation.
+• Integrated Razorpay for payments.
+• REST APIs in Spring Boot with MySQL.
+• React.js responsive UI with role-based authentication.
+
+Result Management System — Thymeleaf Backend — Live
+• Role-based authentication (Admin, Teacher, Student).
+• Spring Boot REST APIs with MySQL.
+• Bootstrap responsive UI.
+• Deployed on Render with database hosted on Neon PostgreSQL.
+
+Certificates
+Core Java — Naresh IT, Hyderabad
+Full Stack Web Development — Bright Greeks, Bangalore

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
-import { Button } from "@/components/ui/button";
 import type { ReactNode } from "react";
+import { Button as UIButton } from "@/components/ui/button";
 
 const Card = ({
   title,
@@ -20,11 +20,11 @@ const Card = ({
       <h3 className="font-semibold text-lg">{title}</h3>
       <p className="text-sm text-muted-foreground">{description}</p>
       {link && (
-        <Button asChild>
+        <UIButton asChild>
           <a href={link} target="_blank" rel="noreferrer">
             Open App
           </a>
-        </Button>
+        </UIButton>
       )}
     </div>
   </div>

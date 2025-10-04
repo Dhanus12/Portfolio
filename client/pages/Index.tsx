@@ -26,6 +26,13 @@ export default function Index() {
     },
   ];
 
+  const laptopMenu = [
+    { to: "/", label: "Home" },
+    { to: "/projects", label: "Projects" },
+    { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" },
+  ];
+
   return (
     <PageTransition>
       <main>

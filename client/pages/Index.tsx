@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import CloudBackground from "@/components/visuals/CloudBackground";
 
 import PageTransition from "@/components/animation/PageTransition";

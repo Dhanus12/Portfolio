@@ -92,11 +92,11 @@ export default function Index() {
           <Reveal>
             <div>
               <h2 className="text-2xl md:text-3xl font-bold">
-                Highlighted Project
+                Highlighted Projects
               </h2>
               <p className="mt-2 text-muted-foreground max-w-2xl">
-                Secure, role-based academic result system with CRUD and
-                protected views, powered by Spring Boot and MySQL.
+                Production-ready systems for academic results and retail billing,
+                showcasing Spring Boot services, MySQL data models, and polished React UIs.
               </p>
             </div>
           </Reveal>
@@ -107,6 +107,16 @@ export default function Index() {
                 description="Admin, Teachers, and Students portals with authentication, CRUD operations, and secure result viewing. Spring Boot APIs + MySQL + React frontend."
                 href="https://result-app-latest.onrender.com/"
                 iframeSrc="https://result-app-latest.onrender.com/"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <div className="mt-10">
+              <ProjectShowcase
+                title="Retail Billing (POS) System"
+                description="Inventory and billing dashboards with role-based access, Razorpay integration, invoice workflows, and analytics powered by Spring Boot, MySQL, and React."
+                href="https://symphonious-seahorse-1e94dc.netlify.app/"
+                iframeSrc="https://symphonious-seahorse-1e94dc.netlify.app/"
               />
             </div>
           </Reveal>

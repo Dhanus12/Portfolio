@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 
+import { Button } from "@/components/ui/button";
+import type { ReactNode } from "react";
+
 const Card = ({
   title,
   description,
@@ -8,7 +11,7 @@ const Card = ({
 }: {
   title: string;
   description: string;
-  children: React.ReactNode;
+  children: ReactNode;
   link?: string;
 }) => (
   <div className="rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden">

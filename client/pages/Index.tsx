@@ -32,7 +32,7 @@ export default function Index() {
   return (
     <PageTransition>
       <main>
-        <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+        <section className="relative overflow-hidden bg-[#0f172a] text-slate-100">
           <VantaCloudsBackground />
           <div className="container mx-auto min-h-[calc(100vh-4rem)] grid place-items-center py-16">
             <div className="text-center max-w-3xl">

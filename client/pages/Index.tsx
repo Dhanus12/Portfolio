@@ -1,16 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import CloudBackground from "@/components/visuals/CloudBackground";
 
 import PageTransition from "@/components/animation/PageTransition";
 import Reveal from "@/components/animation/Reveal";
 import ProjectShowcase from "@/components/portfolio/ProjectShowcase";
+import { Button } from "@/components/ui/button";
+import VantaCloudsBackground from "@/components/visuals/VantaCloudsBackground";
 
 export default function Index() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
   const skills = [
     {
       title: "Java & Spring Boot",
@@ -37,7 +34,7 @@ export default function Index() {
     <PageTransition>
       <main>
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100">
-          <CloudBackground />
+          <VantaCloudsBackground />
           <div className="container mx-auto min-h-[calc(100vh-4rem)] grid place-items-center py-16">
             <div className="text-center max-w-3xl">
               <Reveal>

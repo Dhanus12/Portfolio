@@ -17,7 +17,7 @@ const navItems = [
 export default function NavBar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 text-slate-100 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60">
-      <div className="container mx-auto flex h-16 items-center justify-between">
+      <div className="container mx-auto flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-white font-bold">
             D
@@ -56,31 +56,96 @@ export default function NavBar() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Button
-            asChild
-            size="sm"
-            variant="default"
-            className="bg-emerald-500 text-white hover:bg-emerald-400"
-          >
-            <a href="/DhanusManiS-Resume.txt" download>
-              Download Resume
-            </a>
-          </Button>
-          <Button
-            asChild
-            size="sm"
-            variant="outline"
-            className="border-white/20 text-slate-100 hover:bg-white/10 hover:text-white"
-          >
-            <a href="mailto:dhanusmani43@gmail.com">Email me</a>
-          </Button>
-          <Button
-            asChild
-            size="sm"
-            className="bg-cyan-500 text-white hover:bg-cyan-400"
-          >
-            <a href="/projects">View Work</a>
-          </Button>
+          <div className="hidden md:flex items-center gap-2">
+            <Button
+              asChild
+              size="sm"
+              variant="default"
+              className="bg-emerald-500 text-white hover:bg-emerald-400"
+            >
+              <a href="/DhanusManiS-Resume.txt" download>
+                Download Resume
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="sm"
+              variant="outline"
+              className="border-white/20 text-slate-100 hover:bg-white/10 hover:text-white"
+            >
+              <a href="mailto:dhanusmani43@gmail.com">Email me</a>
+            </Button>
+            <Button
+              asChild
+              size="sm"
+              className="bg-cyan-500 text-white hover:bg-cyan-400"
+            >
+              <a href="/projects">View Work</a>
+            </Button>
+          </div>
+          <Sheet>
+            <SheetTrigger className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 bg-white/10 text-white transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 md:hidden">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle navigation</span>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-full max-w-xs border-none bg-slate-950/95 text-slate-100">
+              <div className="mt-6 flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-white font-bold">
+                  D
+                </span>
+                <span className="text-base font-semibold">DHANUS MANI S</span>
+              </div>
+              <div className="mt-8 space-y-4">
+                {navItems.map((item) => (
+                  <SheetClose asChild key={item.to}>
+                    <NavLink
+                      to={item.to}
+                      className={({ isActive }) =>
+                        cn(
+                          "block rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-sm font-medium transition hover:bg-white/10",
+                          isActive ? "text-white" : "text-slate-200/80",
+                        )
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  </SheetClose>
+                ))}
+              </div>
+              <div className="mt-10 grid gap-3">
+                <SheetClose asChild>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full bg-emerald-500 text-white hover:bg-emerald-400"
+                  >
+                    <a href="/DhanusManiS-Resume.txt" download>
+                      Download Resume
+                    </a>
+                  </Button>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="w-full border-white/20 text-slate-100 hover:bg-white/10 hover:text-white"
+                  >
+                    <a href="mailto:dhanusmani43@gmail.com">Email me</a>
+                  </Button>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full bg-cyan-500 text-white hover:bg-cyan-400"
+                  >
+                    <Link to="/projects">View Work</Link>
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

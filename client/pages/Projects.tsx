@@ -30,6 +30,42 @@ const Card = ({
   </div>
 );
 
+const projects = [
+  {
+    title: "Retail Billing (POS) System",
+    description:
+      "Product/catalog CRUD, customer selection, checkout, invoice generation, Razorpay integration, role-based access, and analytics dashboards. React + Spring Boot + MySQL.",
+    link: "https://symphonious-seahorse-1e94dc.netlify.app/",
+    iframe: {
+      title: "Retail Billing POS",
+      src: "https://symphonious-seahorse-1e94dc.netlify.app/",
+      className: "w-full h-full pointer-events-none grayscale-[15%] contrast-[1.05]",
+    },
+  },
+  {
+    title: "Result Management System",
+    description:
+      "Admin/Teacher/Student roles with secure login, CRUD, marks update, and results view. Spring Boot APIs + MySQL backend.",
+    link: "https://result-app-latest.onrender.com/",
+    iframe: {
+      title: "Result App",
+      src: "https://result-app-latest.onrender.com/",
+      className: "w-full h-full pointer-events-none grayscale-[30%] contrast-75",
+    },
+  },
+  {
+    title: "Gemini AI Chat Assistant",
+    description:
+      "Conversational chatbot UI integrating Google Gemini responses with Spring Boot middleware, streaming replies, and persistent conversation history in React.",
+    link: "https://snazzy-rabanadas-6dac57.netlify.app/",
+    iframe: {
+      title: "Gemini AI Chat Assistant",
+      src: "https://snazzy-rabanadas-6dac57.netlify.app/",
+      className: "w-full h-full pointer-events-none grayscale-[20%] contrast-100",
+    },
+  },
+];
+
 export default function Projects() {
   return (
     <main className="container mx-auto py-12">
@@ -42,29 +78,20 @@ export default function Projects() {
       </p>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2">
-        <Card
-          title="Result Management System"
-          description="Admin/Teacher/Student roles with secure login, CRUD, marks update, and results view. Spring Boot APIs + MySQL backend."
-          link="https://result-app-latest.onrender.com/"
-        >
-          <iframe
-            title="Result App"
-            src="https://result-app-latest.onrender.com/"
-            className="w-full h-full pointer-events-none grayscale-[30%] contrast-75"
-          />
-        </Card>
-
-        <Card
-          title="Retail Billing (POS) System"
-          description="Product/catalog CRUD, customer selection, checkout, invoice generation, Razorpay integration, role-based access, and analytics dashboards. React + Spring Boot + MySQL."
-          link="https://symphonious-seahorse-1e94dc.netlify.app/"
-        >
-          <iframe
-            title="Retail Billing POS"
-            src="https://symphonious-seahorse-1e94dc.netlify.app/"
-            className="w-full h-full pointer-events-none grayscale-[15%] contrast-[1.05]"
-          />
-        </Card>
+        {projects.map((project) => (
+          <Card
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            link={project.link}
+          >
+            <iframe
+              title={project.iframe.title}
+              src={project.iframe.src}
+              className={project.iframe.className}
+            />
+          </Card>
+        ))}
       </div>
     </main>
   );

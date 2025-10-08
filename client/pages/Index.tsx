@@ -1,24 +1,64 @@
 import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+import type { LucideIcon } from "lucide-react";
+import { Code2, Database, Server } from "lucide-react";
+
 import PageTransition from "@/components/animation/PageTransition";
 import Reveal from "@/components/animation/Reveal";
 import ProjectShowcase from "@/components/portfolio/ProjectShowcase";
 import { Button } from "@/components/ui/button";
 import VantaCloudsBackground from "@/components/visuals/VantaCloudsBackground";
 
+interface SkillHighlight {
+  title: string;
+  desc: string;
+  icon: LucideIcon;
+}
+
 export default function Index() {
-  const skills = [
+  const skillHighlights: SkillHighlight[] = [
     {
-      title: "Java & Spring Boot",
-      desc: "REST APIs, authentication, and robust services",
+      title: "Backend APIs",
+      desc: "Secure Spring Boot services with clean architecture and JWT auth.",
+      icon: Server,
     },
     {
-      title: "Database Design",
-      desc: "MySQL schemas, joins, indexing, and migrations",
+      title: "Data Modeling",
+      desc: "Normalised MySQL schemas, query tuning, and migration strategies.",
+      icon: Database,
     },
     {
-      title: "Frontend Engineering",
-      desc: "React components, state, and responsive UI",
+      title: "Frontend Craft",
+      desc: "Responsive React interfaces with smooth UX and accessibility.",
+      icon: Code2,
+    },
+  ];
+
+  const toolkit = [
+    "Spring Boot",
+    "React",
+    "TypeScript",
+    "MySQL",
+    "Docker",
+    "REST/JSON",
+  ];
+
+  const achievements = [
+    {
+      value: "5+",
+      label: "Full-stack apps",
+      detail: "Shipped for academics and small businesses",
+    },
+    {
+      value: "20+",
+      label: "API endpoints",
+      detail: "Designed with caching & validation",
+    },
+    {
+      value: "4.9/5",
+      label: "Reviews",
+      detail: "From mentors and project partners",
     },
   ];
 

@@ -16,31 +16,35 @@ export default function VantaCloudsBackground() {
         return;
       }
 
-      const [{ default: VantaClouds }, THREE] = await Promise.all([
-        import("vanta/dist/vanta.clouds.min"),
-        import("three"),
-      ]);
+      try {
+        const [{ default: VantaClouds }, THREE] = await Promise.all([
+          import("vanta/dist/vanta.clouds.min"),
+          import("three"),
+        ]);
 
-      if (!containerRef.current || !isActive) {
-        return;
+        if (!containerRef.current || !isActive) {
+          return;
+        }
+
+        const three = (THREE as { default?: unknown })?.default ?? THREE;
+
+        effectRef.current = VantaClouds({
+          el: containerRef.current,
+          THREE: three,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          skyColor: 0x0f172a,
+          cloudColor: 0x38bdf8,
+          sunColor: 0x38bdf8,
+          cloudShadowColor: 0x0f172a,
+          speed: 1.8,
+        });
+      } catch (error) {
+        console.error("Failed to initialize Vanta CLOUDS background", error);
       }
-
-      const three = (THREE as { default?: unknown })?.default ?? THREE;
-
-      effectRef.current = VantaClouds({
-        el: containerRef.current,
-        THREE: three,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        skyColor: 0x0f172a,
-        cloudColor: 0x38bdf8,
-        sunColor: 0x38bdf8,
-        cloudShadowColor: 0x0f172a,
-        speed: 1.8,
-      });
     }
 
     initVanta();

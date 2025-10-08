@@ -29,6 +29,30 @@ export default function Index() {
     { to: "/contact", label: "Contact" },
   ];
 
+  const featuredProjects = [
+    {
+      title: "Retail Billing (POS) System",
+      description:
+        "Inventory and billing dashboards with role-based access, Razorpay integration, invoice workflows, and analytics powered by Spring Boot, MySQL, and React.",
+      href: "https://symphonious-seahorse-1e94dc.netlify.app/",
+      iframeSrc: "https://symphonious-seahorse-1e94dc.netlify.app/",
+    },
+    {
+      title: "Result Management System",
+      description:
+        "Admin, Teachers, and Students portals with authentication, CRUD operations, and secure result viewing. Spring Boot APIs + MySQL + React frontend.",
+      href: "https://result-app-latest.onrender.com/",
+      iframeSrc: "https://result-app-latest.onrender.com/",
+    },
+    {
+      title: "Gemini AI Chat Assistant",
+      description:
+        "Conversational AI assistant powered by Google Gemini with a React UI and Spring Boot backend proxying secure requests for contextual responses and history.",
+      href: "https://snazzy-rabanadas-6dac57.netlify.app/",
+      iframeSrc: "https://snazzy-rabanadas-6dac57.netlify.app/",
+    },
+  ];
+
   return (
     <PageTransition>
       <main>
@@ -116,26 +140,13 @@ export default function Index() {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={0.08}>
-            <div className="mt-6">
-              <ProjectShowcase
-                title="Result Management System"
-                description="Admin, Teachers, and Students portals with authentication, CRUD operations, and secure result viewing. Spring Boot APIs + MySQL + React frontend."
-                href="https://result-app-latest.onrender.com/"
-                iframeSrc="https://result-app-latest.onrender.com/"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <div className="mt-10">
-              <ProjectShowcase
-                title="Retail Billing (POS) System"
-                description="Inventory and billing dashboards with role-based access, Razorpay integration, invoice workflows, and analytics powered by Spring Boot, MySQL, and React."
-                href="https://symphonious-seahorse-1e94dc.netlify.app/"
-                iframeSrc="https://symphonious-seahorse-1e94dc.netlify.app/"
-              />
-            </div>
-          </Reveal>
+          {featuredProjects.map((project, index) => (
+            <Reveal key={project.title} delay={0.08 * (index + 1)}>
+              <div className={index === 0 ? "mt-6" : "mt-10"}>
+                <ProjectShowcase {...project} />
+              </div>
+            </Reveal>
+          ))}
         </section>
       </main>
     </PageTransition>

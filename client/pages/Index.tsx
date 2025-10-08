@@ -216,27 +216,53 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="container mx-auto py-16">
-          <Reveal>
-            <h2 className="text-2xl md:text-3xl font-bold">Career Objective</h2>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="mt-3 text-muted-foreground max-w-3xl">
-              Recent ECE graduate seeking a Java Developer or Full Stack role to
-              apply and grow my skills. Experienced with building real-world
-              applications, contributing to both frontend and backend logic, and
-              maintaining clean, scalable code.
-            </p>
-          </Reveal>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {skills.map((s, i) => (
-              <Reveal key={s.title} delay={0.06 * i}>
-                <div className="rounded-xl border p-5 bg-card">
-                  <h3 className="font-semibold">{s.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+        <section className="relative overflow-hidden py-20">
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-slate-100/20 via-emerald-500/10 to-cyan-500/10 dark:from-slate-900/40 dark:via-slate-950/40 dark:to-slate-900/40"
+            aria-hidden="true"
+          />
+          <div className="container relative z-10 mx-auto">
+            <div className="grid gap-12 lg:grid-cols-[320px_minmax(0,1fr)]">
+              <Reveal>
+                <div className="space-y-4">
+                  <h2 className="text-3xl font-bold tracking-tight">
+                    Engineer with a product mindset
+                  </h2>
+                  <p className="text-muted-foreground">
+                    From ideation to release, I optimise delivery pipelines, document decisions, and
+                    ensure the solutions scale with your roadmap.
+                  </p>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400" />
+                      <span>Automated testing hooks, monitoring, and observability baked in.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-cyan-400" />
+                      <span>Readable PRs and architecture notes for effortless team handovers.</span>
+                    </li>
+                  </ul>
                 </div>
               </Reveal>
-            ))}
+              <div className="grid gap-6 md:grid-cols-3">
+                {skillHighlights.map((skill, index) => {
+                  const Icon = skill.icon;
+                  return (
+                    <Reveal key={skill.title} delay={0.06 * index}>
+                      <div className="rounded-2xl border border-slate-200/20 bg-white/80 p-6 text-left shadow-lg backdrop-blur dark:border-white/10 dark:bg-white/5">
+                        <Icon className="h-6 w-6 text-cyan-500 dark:text-cyan-400" />
+                        <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">
+                          {skill.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-slate-600 dark:text-slate-200/80">
+                          {skill.desc}
+                        </p>
+                      </div>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
 

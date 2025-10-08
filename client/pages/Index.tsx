@@ -98,49 +98,121 @@ export default function Index() {
       <main>
         <section className="relative overflow-hidden bg-[#0f172a] text-slate-100">
           <VantaCloudsBackground />
-          <div className="container mx-auto min-h-[calc(100vh-4rem)] grid place-items-center py-16">
-            <div className="text-center max-w-3xl">
-              <Reveal>
-                <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-slate-100/85 shadow-lg shadow-cyan-500/10">
-                  Java Developer • Spring Boot • MySQL • React
-                </p>
-              </Reveal>
-              <Reveal delay={0.08}>
-                <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                  Building clean, scalable full‑stack apps in Java
-                </h1>
-              </Reveal>
-              <Reveal delay={0.16}>
-                <p className="mt-4 text-lg text-slate-200/90">
-                  I’m Dhanus Mani S — a Java developer crafting robust APIs with
-                  Spring Boot and intuitive UIs with React. Quick learner,
-                  production mindset, and a passion for performance.
-                </p>
-              </Reveal>
-              <Reveal delay={0.24}>
-                <div className="mt-6 flex items-center justify-center gap-3">
-                  <Button asChild size="lg">
-                    <Link to="/projects">See Projects</Link>
-                  </Button>
-                  <Button asChild size="lg" variant="outline">
-                    <Link to="/about">About Me</Link>
-                  </Button>
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-slate-950/40 to-cyan-900/30"
+            aria-hidden="true"
+          />
+          <div className="container relative z-10 mx-auto flex flex-col gap-12 py-20 lg:py-28">
+            <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_360px]">
+              <div className="space-y-8 text-center lg:text-left">
+                <Reveal>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs uppercase tracking-wide text-slate-100/80 backdrop-blur">
+                    <span>Full-stack Java Engineer</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    <span>Open to opportunities</span>
+                  </div>
+                </Reveal>
+                <Reveal delay={0.08}>
+                  <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                    Crafting resilient Spring Boot APIs with delightful React UIs
+                  </h1>
+                </Reveal>
+                <Reveal delay={0.16}>
+                  <p className="text-lg text-slate-100/85">
+                    I build production-ready features end-to-end—from designing database schemas and secured services to delivering pixel-perfect web experiences that feel effortless.
+                  </p>
+                </Reveal>
+                <Reveal delay={0.24}>
+                  <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+                    <Button asChild size="lg">
+                      <Link to="/projects">View Recent Work</Link>
+                    </Button>
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="border-white/20 text-slate-100 hover:bg-white/10 hover:text-white"
+                    >
+                      <Link to="/contact">Book a chat</Link>
+                    </Button>
+                  </div>
+                </Reveal>
+                <Reveal delay={0.32}>
+                  <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
+                    {toolkit.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-100/80 backdrop-blur"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </Reveal>
+              </div>
+              <Reveal delay={0.2}>
+                <div className="relative mx-auto w-full max-w-sm">
+                  <div className="absolute inset-0 -z-10 rounded-[32px] bg-gradient-to-br from-cyan-400/30 via-transparent to-emerald-400/30 blur-3xl" />
+                  <div className="rounded-[32px] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
+                    <p className="text-xs uppercase tracking-[0.2em] text-cyan-200/80">
+                      Currently building
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold">
+                      AI copilots for customer support
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-100/75">
+                      Integrating Gemini with Spring Boot gateways to deliver contextual chat experiences and streamline helpdesk workflows.
+                    </p>
+                    <div className="mt-6 space-y-3 text-sm">
+                      <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                        <span className="text-slate-100/70">Focus</span>
+                        <span className="font-semibold text-white">Reliability</span>
+                      </div>
+                      <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                        <span className="text-slate-100/70">Stack</span>
+                        <span className="font-semibold text-white">Spring Boot • React</span>
+                      </div>
+                      <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                        <span className="text-slate-100/70">Availability</span>
+                        <span className="font-semibold text-white">Immediate</span>
+                      </div>
+                    </div>
+                    <div className="mt-6 rounded-2xl border border-white/10 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 px-4 py-3 text-sm text-slate-100/80">
+                      Let’s collaborate on performance-driven products and tools.
+                    </div>
+                  </div>
                 </div>
               </Reveal>
-              <Reveal delay={0.32}>
-                <nav className="mt-10 hidden lg:flex items-center justify-center gap-10 text-sm font-medium">
-                  {laptopMenu.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="relative inline-flex text-slate-200/80 transition-colors hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-cyan-400/80 after:transition-transform after:duration-200 after:ease-out after:content-[''] hover:after:scale-x-100"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-              </Reveal>
             </div>
+            <Reveal delay={0.36}>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {achievements.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur lg:text-left"
+                  >
+                    <div className="text-2xl font-semibold text-white">{item.value}</div>
+                    <div className="mt-1 text-sm font-medium text-slate-100/85">
+                      {item.label}
+                    </div>
+                    <p className="mt-2 text-xs text-slate-100/70">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+            <Reveal delay={0.44}>
+              <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-200/80">
+                {laptopMenu.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className="relative inline-flex transition-colors hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-cyan-400/80 after:transition-transform after:duration-200 after:ease-out after:content-[''] hover:after:scale-x-100"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </Reveal>
           </div>
         </section>
 

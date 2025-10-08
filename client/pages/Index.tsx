@@ -273,8 +273,8 @@ export default function Index() {
                 Highlighted Projects
               </h2>
               <p className="mt-2 text-muted-foreground max-w-2xl">
-                Production-ready systems for academic results and retail billing,
-                showcasing Spring Boot services, MySQL data models, and polished React UIs.
+                Retail automation, academic results, and AI assistance—each project pairs
+                Spring Boot services, MySQL data models, and polished React interfaces.
               </p>
             </div>
           </Reveal>

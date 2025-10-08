@@ -25,9 +25,11 @@ export default function VantaCloudsBackground() {
         return;
       }
 
+      const three = (THREE as { default?: unknown })?.default ?? THREE;
+
       effectRef.current = VantaClouds({
         el: containerRef.current,
-        THREE,
+        THREE: three,
         mouseControls: true,
         touchControls: true,
         gyroControls: false,

@@ -36,11 +36,6 @@ export default function VantaCloudsBackground() {
           gyroControls: false,
           minHeight: 200.0,
           minWidth: 200.0,
-          skyColor: 0x0f172a,
-          cloudColor: 0x38bdf8,
-          sunColor: 0x38bdf8,
-          cloudShadowColor: 0x0f172a,
-          speed: 1.8,
         });
       } catch (error) {
         console.error("Failed to initialize Vanta CLOUDS background", error);
@@ -58,5 +53,12 @@ export default function VantaCloudsBackground() {
     };
   }, []);
 
-  return <div ref={containerRef} className="absolute inset-0 -z-10" aria-hidden="true" />;
+  return (
+    <div
+      id="your-element-selector"
+      ref={containerRef}
+      className="absolute inset-0 -z-10"
+      aria-hidden="true"
+    />
+  );
 }

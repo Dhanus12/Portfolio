@@ -9,6 +9,10 @@ export default function VantaCloudsBackground() {
   const effectRef = useRef<VantaInstance | null>(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     let isActive = true;
 
     async function initVanta() {
@@ -17,7 +21,7 @@ export default function VantaCloudsBackground() {
       }
 
       try {
-        const [{ default: VantaClouds }, THREE] = await Promise.all([
+        const [vantaModule, threeModule] = await Promise.all([
           import("vanta/dist/vanta.clouds.min"),
           import("three"),
         ]);
@@ -26,17 +30,24 @@ export default function VantaCloudsBackground() {
           return;
         }
 
-        const three = (THREE as { default?: unknown })?.default ?? THREE;
+        const VantaClouds = vantaModule?.default;
+        const three = (threeModule as { default?: typeof import("three") })?.default ?? threeModule;
 
-        effectRef.current = VantaClouds({
-          el: containerRef.current,
-          THREE: three,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-        });
+        if (typeof window !== "undefined") {
+          (window as typeof window & { THREE?: typeof import("three") }).THREE = three as typeof import("three");
+        }
+
+        if (typeof VantaClouds === "function") {
+          effectRef.current = VantaClouds({
+            el: containerRef.current,
+            THREE: three,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.0,
+            minWidth: 200.0,
+          });
+        }
       } catch (error) {
         console.error("Failed to initialize Vanta CLOUDS background", error);
       }

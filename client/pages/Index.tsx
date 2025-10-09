@@ -44,7 +44,7 @@ export default function Index() {
 
   const achievements = [
     {
-      value: "5+",
+      value: "3+",
       label: "Full-stack apps",
       detail: "Shipped for academics and small businesses",
     },
@@ -94,10 +94,10 @@ export default function Index() {
   return (
     <PageTransition>
       <main>
-        <section className="relative overflow-hidden bg-[#081425] text-slate-100">
+        <section className="relative overflow-hidden bg-[#061a2d] text-slate-100">
           <VantaCloudsBackground />
           <div
-            className="absolute inset-0 bg-gradient-to-br from-indigo-900/55 via-slate-900/35 to-sky-900/35"
+            className="absolute inset-0 bg-gradient-to-br from-sky-900/45 via-indigo-900/30 to-emerald-900/35"
             aria-hidden="true"
           />
           <div className="container relative z-10 mx-auto flex flex-col gap-12 py-20 lg:py-28">

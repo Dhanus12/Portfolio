@@ -36,10 +36,10 @@ export default function Index() {
   const toolkit = [
     "Spring Boot",
     "React",
-    "TypeScript",
     "MySQL",
-    "Docker",
+    "Tailwind CSS",
     "REST/JSON",
+    "Gemini API",
   ];
 
   const achievements = [
@@ -94,10 +94,10 @@ export default function Index() {
   return (
     <PageTransition>
       <main>
-        <section className="relative overflow-hidden bg-[#0f172a] text-slate-100">
+        <section className="relative overflow-hidden bg-[#081425] text-slate-100">
           <VantaCloudsBackground />
           <div
-            className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-slate-950/40 to-cyan-900/30"
+            className="absolute inset-0 bg-gradient-to-br from-indigo-900/55 via-slate-900/35 to-sky-900/35"
             aria-hidden="true"
           />
           <div className="container relative z-10 mx-auto flex flex-col gap-12 py-20 lg:py-28">
@@ -156,10 +156,10 @@ export default function Index() {
                       Currently building
                     </p>
                     <h3 className="mt-3 text-2xl font-semibold">
-                      AI copilots for customer support
+                      Gemini AI chat box
                     </h3>
                     <p className="mt-2 text-sm text-slate-100/75">
-                      Integrating Gemini with Spring Boot gateways to deliver contextual chat experiences and streamline helpdesk workflows.
+                      Building a Gemini-driven assistant with Spring Boot middleware to deliver contextual, secure conversations for support teams.
                     </p>
                     <div className="mt-6 space-y-3 text-sm">
                       <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
@@ -199,17 +199,30 @@ export default function Index() {
               </div>
             </Reveal>
             <Reveal delay={0.44}>
-              <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-200/80">
-                {laptopMenu.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className="relative inline-flex transition-colors hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-cyan-400/80 after:transition-transform after:duration-200 after:ease-out after:content-[''] hover:after:scale-x-100"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
+              <div className="flex flex-col gap-6">
+                <nav className="flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-200/80 lg:hidden">
+                  {laptopMenu.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 uppercase tracking-wide transition hover:bg-white/10 hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+                <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-200/80">
+                  {laptopMenu.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="relative inline-flex transition-colors hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-cyan-400/80 after:transition-transform after:duration-200 after:ease-out after:content-[''] hover:after:scale-x-100"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
             </Reveal>
           </div>
         </section>

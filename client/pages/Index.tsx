@@ -94,12 +94,8 @@ export default function Index() {
   return (
     <PageTransition>
       <main>
-        <section className="relative overflow-hidden bg-[#59626d] text-slate-100">
+        <section className="relative overflow-hidden text-slate-100">
           <VantaCloudsBackground />
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-[#6c7783]/55 via-[#394250]/40 to-[#1f2833]/45"
-            aria-hidden="true"
-          />
           <div className="container relative z-10 mx-auto flex flex-col gap-12 py-20 lg:py-28">
             <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_360px]">
               <div className="space-y-8 text-center lg:text-left">

@@ -70,7 +70,7 @@ export default function NavBar() {
               asChild
               size="sm"
               variant="outline"
-              className="border-white/20 text-slate-100 hover:bg-white/10 hover:text-white"
+              className="border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white"
             >
               <a href="mailto:dhanusmani43@gmail.com">Email me</a>
             </Button>
@@ -128,7 +128,7 @@ export default function NavBar() {
                     asChild
                     size="lg"
                     variant="outline"
-                    className="w-full border-white/20 text-slate-100 hover:bg-white/10 hover:text-white"
+                    className="w-full border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white"
                   >
                     <a href="mailto:dhanusmani43@gmail.com">Email me</a>
                   </Button>

@@ -125,7 +125,7 @@ export default function Index() {
                       asChild
                       size="lg"
                       variant="outline"
-                      className="border-white/20 text-slate-100 hover:bg-white/10 hover:text-white"
+                      className="border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white"
                     >
                       <Link to="/contact">Book a chat</Link>
                     </Button>

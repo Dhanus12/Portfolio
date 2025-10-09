@@ -94,10 +94,10 @@ export default function Index() {
   return (
     <PageTransition>
       <main>
-        <section className="relative overflow-hidden bg-[#061a2d] text-slate-100">
+        <section className="relative overflow-hidden bg-[#59626d] text-slate-100">
           <VantaCloudsBackground />
           <div
-            className="absolute inset-0 bg-gradient-to-br from-sky-900/45 via-indigo-900/30 to-emerald-900/35"
+            className="absolute inset-0 bg-gradient-to-br from-[#6c7783]/55 via-[#394250]/40 to-[#1f2833]/45"
             aria-hidden="true"
           />
           <div className="container relative z-10 mx-auto flex flex-col gap-12 py-20 lg:py-28">
@@ -196,32 +196,6 @@ export default function Index() {
                     <p className="mt-2 text-xs text-slate-100/70">{item.detail}</p>
                   </div>
                 ))}
-              </div>
-            </Reveal>
-            <Reveal delay={0.44}>
-              <div className="flex flex-col gap-6">
-                <nav className="flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-200/80 lg:hidden">
-                  {laptopMenu.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 uppercase tracking-wide transition hover:bg-white/10 hover:text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-                <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-200/80">
-                  {laptopMenu.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="relative inline-flex transition-colors hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-cyan-400/80 after:transition-transform after:duration-200 after:ease-out after:content-[''] hover:after:scale-x-100"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
               </div>
             </Reveal>
           </div>

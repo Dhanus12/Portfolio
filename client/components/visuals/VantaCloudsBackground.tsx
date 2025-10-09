@@ -68,7 +68,7 @@ export default function VantaCloudsBackground() {
     <div
       id="your-element-selector"
       ref={containerRef}
-      className="absolute inset-0 -z-10 bg-[#59626d]"
+      className="absolute inset-0 -z-10"
       aria-hidden="true"
     />
   );

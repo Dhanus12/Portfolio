@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [status, setStatus] = useState<string | null>(null);
@@ -13,6 +14,28 @@ export default function Contact() {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_08todac";
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (templateId && publicKey) {
+        const { name, email, message } = data as Record<string, string>;
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            from_name: name,
+            from_email: email,
+            message,
+          },
+          { publicKey },
+        );
+        setStatus("Message sent successfully!");
+        form.reset();
+        return;
+      }
+
+      // Fallback to server endpoint when EmailJS not configured
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

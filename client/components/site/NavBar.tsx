@@ -62,9 +62,7 @@ export default function NavBar() {
               variant="default"
               className="bg-emerald-500 text-white hover:bg-emerald-400"
             >
-              <a href="/DhanusManiS-Resume.txt" download>
-                Download Resume
-              </a>
+              <Link to="/resume">Download Resume</Link>
             </Button>
             <Button
               asChild
@@ -118,9 +116,7 @@ export default function NavBar() {
                     size="lg"
                     className="w-full bg-emerald-500 text-white hover:bg-emerald-400"
                   >
-                    <a href="/DhanusManiS-Resume.txt" download>
-                      Download Resume
-                    </a>
+                    <Link to="/resume">Download Resume</Link>
                   </Button>
                 </SheetClose>
                 <SheetClose asChild>

@@ -1,7 +1,60 @@
 import InteractiveBackground from "@/components/visuals/InteractiveBackground";
 import PageTransition from "@/components/animation/PageTransition";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { Button } from "@/components/ui/button";
 
 export default function About() {
+  const [status, setStatus] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+    const form = e.currentTarget as HTMLFormElement;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_08todac";
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!templateId || !publicKey) {
+        // Fallback to server endpoint if EmailJS not configured
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || "Failed to send");
+        setStatus("Message sent successfully!");
+        form.reset();
+        return;
+      }
+
+      const { name, email, message } = data as Record<string, string>;
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: name,
+          from_email: email,
+          message,
+        },
+        {
+          publicKey,
+        },
+      );
+      setStatus("Message sent successfully!");
+      form.reset();
+    } catch (err: any) {
+      setStatus(err.message || "Could not send message. Configure email.");
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
     <PageTransition>
       <section className="relative">
@@ -76,6 +129,55 @@ export default function About() {
               <li>Syed Ammal Hr. Sec. School — HSC</li>
               <li>Syed Ammal Hr. Sec. School — SSLC</li>
             </ul>
+          </section>
+
+          <section className="mt-12">
+            <h2 className="font-semibold text-xl">Send me a message</h2>
+            <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
+              This will be delivered to my inbox.
+            </p>
+            <form onSubmit={onSubmit} className="mt-6 grid gap-4 max-w-xl">
+              <div>
+                <label className="block text-sm font-medium">Your name</label>
+                <input
+                  name="name"
+                  required
+                  className="mt-1 w-full rounded-md border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-ring"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="mt-1 w-full rounded-md border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-ring"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Message</label>
+                <textarea
+                  name="message"
+                  required
+                  rows={5}
+                  className="mt-1 w-full rounded-md border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-ring"
+                />
+              </div>
+              <div className="flex items-center gap-3">
+                <Button type="submit" disabled={loading}>
+                  {loading ? "Sending..." : "Send Message"}
+                </Button>
+                <a
+                  href="mailto:dhanusmani43@gmail.com"
+                  className="text-sm text-primary underline"
+                >
+                  or email directly
+                </a>
+              </div>
+              {status && (
+                <p className="text-sm text-muted-foreground">{status}</p>
+              )}
+            </form>
           </section>
         </main>
       </section>

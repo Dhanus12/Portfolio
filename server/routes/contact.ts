@@ -24,7 +24,8 @@ export const handleContact: RequestHandler = async (req, res) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Portfolio <noreply@yourdomain.dev>",
+        // Use a Resend-managed sender to avoid domain verification issues in dev
+        from: "Dhanus Mani <onboarding@resend.dev>",
         to: [TO_EMAIL],
         subject: `New portfolio message from ${name}`,
         html: `<p><strong>From:</strong> ${name} (${email})</p><p>${message.replace(/</g, "&lt;")}</p>`,

@@ -1,6 +1,7 @@
 import "./global.css";
 
 import { Toaster } from "@/components/ui/toaster";
+import { useLayoutEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,6 +35,31 @@ function AnimatedRoutes() {
   );
 }
 
+function ScrollToTop() {
+  const location = useLocation();
+  // Disable browser scroll restoration globally
+  useLayoutEffect(() => {
+    const { history } = window;
+    const prev = (history as any).scrollRestoration;
+    if ("scrollRestoration" in history) {
+      (history as any).scrollRestoration = "manual";
+    }
+    return () => {
+      if ("scrollRestoration" in history) {
+        (history as any).scrollRestoration = prev ?? "auto";
+      }
+    };
+  }, []);
+
+  // Always scroll to top on initial load and on every route change
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [location.pathname]);
+  return null;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -43,6 +69,7 @@ const App = () => (
         <div className="min-h-screen flex flex-col">
           <NavBar />
           <div className="flex-1">
+            <ScrollToTop />
             <AnimatedRoutes />
           </div>
           <Footer />

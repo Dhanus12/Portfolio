@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import resumePdf from "@/components/animation/dhanus resume.pdf";
 import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -62,7 +63,7 @@ export default function NavBar() {
               variant="default"
               className="bg-emerald-500 text-white hover:bg-emerald-400"
             >
-              <Link to="/resume">Download Resume</Link>
+              <a href={resumePdf} download>Download Resume</a>
             </Button>
             <Button
               asChild
@@ -116,7 +117,7 @@ export default function NavBar() {
                     size="lg"
                     className="w-full bg-emerald-500 text-white hover:bg-emerald-400"
                   >
-                    <Link to="/resume">Download Resume</Link>
+                    <a href={resumePdf} download>Download Resume</a>
                   </Button>
                 </SheetClose>
                 <SheetClose asChild>

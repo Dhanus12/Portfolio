@@ -1,4 +1,5 @@
 import { useState } from "react";
+import VantaGlobeBackground from "@/components/visuals/VantaGlobeBackground";
 import { Button } from "@/components/ui/button";
 import emailjs from "@emailjs/browser";
 
@@ -53,7 +54,9 @@ export default function Contact() {
   }
 
   return (
-    <main className="container mx-auto py-12">
+    <section className="relative">
+      <VantaGlobeBackground />
+      <main className="container relative z-10 mx-auto py-12">
       <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Contact</h1>
       <p className="mt-2 text-muted-foreground max-w-2xl">
         Send a message and it will be delivered to my inbox once email is
@@ -101,5 +104,8 @@ export default function Contact() {
         {status && <p className="text-sm text-muted-foreground">{status}</p>}
       </form>
     </main>
+    <div className="relative z-10">
+    </div>
+    </section>
   );
 }

@@ -108,6 +108,9 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* Prevent browser from animating scroll and anchoring to later content on load */
+    scroll-behavior: auto;
+    overflow-anchor: none;
   }
+  body { overflow-anchor: none; }
 }
